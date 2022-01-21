@@ -8,9 +8,9 @@ const btnCheck = document.querySelector('.check');
 const scoreText = document.querySelector('.score');
 const highscoreText = document.querySelector('.highscore');
 
-let randomNumber = Math.trunc(Math.random() * 20)+1;
+let randomNumber = Math.trunc(Math.random() * 30)+1;
 console.log(`Número secreto: ${randomNumber}`);
-let score = 20;
+let score = 25;
 scoreText.innerText = score;
 let highscore = 0
 highscoreText.innerText = highscore;
@@ -47,23 +47,21 @@ const checkNumber = (guessValue) => {
 
 
 const resetGame = () => {
-    if (score === 0) {
-        score = 20
-    }
-    randomNumber = Math.trunc(Math.random() * 20)+1;
+    score = 25
+    randomNumber = Math.trunc(Math.random() * 30)+1;
     console.log(`Número secreto: ${randomNumber}`);
     number.innerText = '?';
     document.body.classList.remove('win');
-    message.innerText = 'Escolha um número entre 0 e 20';
+    message.innerText = 'Escolha um número entre 0 e 30';
     guess.value = '';
     scoreText.innerText = score;
 }
 
 const endGame = () => {
-    message.innerText = 'Você perdeu';
-    scoreText.innerText = '0';
-    if(score == 0) {
-        score = 20;
+    if(score === 0) {
+        score = 25;
+        scoreText.innerText = '0';
+        message.innerText = 'Você perdeu';
     }
 }
 
